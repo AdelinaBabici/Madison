@@ -11,7 +11,7 @@ public class HomePage {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
-        //Create a new webdriver instance
+/*        //Create a new webdriver instance
         WebDriver driver = new ChromeDriver();
 
         //Launch a new browser session
@@ -77,6 +77,26 @@ public class HomePage {
         WebElement sale = driver5.findElement(By.cssSelector("#nav > ol > li.level0.nav-5.parent"));
         sale.click();
         driver5.quit();
+*/
+        WebDriver driver6 = new ChromeDriver();
+        driver6.get("http://qa2.dev.evozon.com/");
+       WebElement account = driver6.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label"));
+       account.click();
+       WebElement login = driver6.findElement(By.cssSelector("#header-account > div > ul > li.last > a"));
+        login.click();
+        WebElement email = driver6.findElement(By.cssSelector("#email"));
+        email.clear();
+        email.sendKeys("ab@yahoo.com");
+        WebElement password = driver6.findElement(By.cssSelector("#pass"));
+        password.clear();
+        password.sendKeys("aaaaaa");
+        WebElement loginBtn = driver6.findElement(By.cssSelector("#send2 > span > span"));
+        loginBtn.click();
+        WebElement vip = driver6.findElement(By.cssSelector("#nav > ol > li.level0.nav-6.last > a"));
+        vip.click();
+        WebElement addToCartBtn = driver6.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > div > div.actions > button > span > span"));
+        addToCartBtn.click();
+
 
     }
 }
