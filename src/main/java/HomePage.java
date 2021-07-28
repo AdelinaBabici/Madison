@@ -94,8 +94,12 @@ public class HomePage {
         loginBtn.click();
         WebElement vip = driver6.findElement(By.cssSelector("#nav > ol > li.level0.nav-6.last > a"));
         vip.click();
+        Select oselect = new Select(driver6.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > div.toolbar > div.pager > div > div > select")));
+        List<WebElement> numberPerPage = oselect.getOptions();
+        oselect.selectByIndex(2);
         WebElement addToCartBtn = driver6.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > div > div.actions > button > span > span"));
         addToCartBtn.click();
+        driver6.quit();
 
 
     }
