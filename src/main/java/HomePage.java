@@ -9,7 +9,7 @@ import java.util.List;
 public class HomePage {
 
     public static void main(String[] args) {
-      System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+  /*    System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
        //Create a new webdriver instance
        WebDriver driver = new ChromeDriver();
@@ -122,7 +122,7 @@ public class HomePage {
         loginBtn.click();
 
 
-
+*/
 
     }
 }

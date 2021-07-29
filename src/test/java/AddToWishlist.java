@@ -45,13 +45,18 @@ public class AddToWishlist {
         WebElement loginBtn = driver.findElement(By.id("send2"));
         loginBtn.click();
 
-        String msg = driver.findElement(By.className("success-msg")).getText();
-        List<WebElement> elementList= driver.findElements(By.id("item_265"));
+        List<WebElement> elementList= driver.findElements(By.cssSelector("#wishlist-table tr[id]"));
+        String foundProduct;
+        boolean productFound=false;
         for(WebElement el: elementList){
-            System.out.println(el.getText());
+        if(el.findElement(By.cssSelector("h3 a")).getText().equals("AVIATOR SUNGLASSES")){
+        productFound=true;
+        break;
+}
+Assert.assertTrue("product not added to wishlist", productFound);
+
         }
 
-        Assert.assertTrue("Message has not been displayed", msg.contains("Aviator Sunglasses has been added to your wishlist. Click here to continue shopping."));
 
     }
 }
