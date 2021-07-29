@@ -11,8 +11,8 @@ public class HomePage {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
-/*        //Create a new webdriver instance
-        WebDriver driver = new ChromeDriver();
+       //Create a new webdriver instance
+       WebDriver driver = new ChromeDriver();
 
         //Launch a new browser session
         driver.get("http://qa2.dev.evozon.com/");
@@ -20,10 +20,10 @@ public class HomePage {
         System.out.println("Page title is: " + driver.getTitle());
         System.out.println("Current URL is: " + driver.getCurrentUrl());
 
-        WebElement logo = driver.findElement(By.cssSelector("#header > div > a > img.large"));
+        WebElement logo = driver.findElement(By.className("logo"));
         logo.click();
 
-        WebElement accessories = driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent > a"));
+        WebElement accessories = driver.findElement(By.cssSelector(".level0.nav-3.parent"));
         accessories.click();
         driver.navigate().back();
         driver.navigate().forward();
@@ -34,13 +34,13 @@ public class HomePage {
         WebDriver driver1 = new ChromeDriver();
         driver1.get("http://qa2.dev.evozon.com/");
 
-        WebElement account = driver1.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label"));
+        WebElement account = driver1.findElement(By.cssSelector(".skip-link.skip-account"));
         account.click();
         driver1.quit();
 //
-        WebDriver driver2 = new ChromeDriver();
+    WebDriver driver2 = new ChromeDriver();
         driver2.get("http://qa2.dev.evozon.com/");
-        Select select = new Select(driver2.findElement(By.cssSelector("#select-language")));
+        Select select = new Select(driver2.findElement(By.id("select-language")));
         List<WebElement> languages = select.getOptions();
         System.out.println(languages.size());
         select.selectByIndex(1);
@@ -50,7 +50,7 @@ public class HomePage {
 
         WebDriver driver3 = new ChromeDriver();
         driver3.get("http://qa2.dev.evozon.com/");
-        WebElement search = driver3.findElement(By.cssSelector("#search"));
+        WebElement search = driver3.findElement(By.id("search"));
         search.clear();
         search.sendKeys("top");
         search.submit();
@@ -59,7 +59,7 @@ public class HomePage {
         WebDriver driver4 = new ChromeDriver();
         driver4.get("http://qa2.dev.evozon.com/");
 
-        List<WebElement> products = driver4.findElements(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products > ul > li > div > h3"));
+        List<WebElement> products = driver4.findElements(By.className("product-name"));
         int numOfChildren = products.size();
         System.out.println(numOfChildren);
         for(WebElement element : products) {
@@ -70,38 +70,40 @@ public class HomePage {
 
         WebDriver driver5 = new ChromeDriver();
         driver5.get("http://qa2.dev.evozon.com/");
-        List<WebElement> headline = driver5.findElements(By.cssSelector(("#nav > ol")));
+        List<WebElement> headline = driver5.findElements(By.id(("header-nav")));
         for(WebElement options : headline){
             System.out.println(options.getText());
         }
-        WebElement sale = driver5.findElement(By.cssSelector("#nav > ol > li.level0.nav-5.parent"));
+        WebElement sale = driver5.findElement(By.cssSelector(".level0.nav-5.parent"));
         sale.click();
         driver5.quit();
-
+   */
         WebDriver driver6 = new ChromeDriver();
-        driver6.get("http://qa2.dev.evozon.com/");
-       WebElement account = driver6.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label"));
+       driver6.get("http://qa2.dev.evozon.com/");
+       WebElement account = driver6.findElement(By.cssSelector(".skip-link.skip-account"));
        account.click();
-       WebElement login = driver6.findElement(By.cssSelector("#header-account > div > ul > li.last > a"));
+       WebElement login = driver6.findElement(By.cssSelector("a[href*='login']"));
         login.click();
-        WebElement email = driver6.findElement(By.cssSelector("#email"));
+        WebElement email = driver6.findElement(By.id("email"));
         email.clear();
         email.sendKeys("ab@yahoo.com");
-        WebElement password = driver6.findElement(By.cssSelector("#pass"));
+        WebElement password = driver6.findElement(By.id("pass"));
         password.clear();
         password.sendKeys("aaaaaa");
-        WebElement loginBtn = driver6.findElement(By.cssSelector("#send2 > span > span"));
+        WebElement loginBtn = driver6.findElement(By.id("send2"));
         loginBtn.click();
-        WebElement vip = driver6.findElement(By.cssSelector("#nav > ol > li.level0.nav-6.last > a"));
+        WebElement vip = driver6.findElement(By.cssSelector("a[href*='vip']"));
         vip.click();
-        Select oselect = new Select(driver6.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > div.toolbar > div.pager > div > div > select")));
+        Select oselect = new Select(driver6.findElement(By.cssSelector("select[title='Results per page']")));
         List<WebElement> numberPerPage = oselect.getOptions();
         oselect.selectByIndex(2);
-        WebElement addToCartBtn = driver6.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > div > div.actions > button > span > span"));
+
+        List<WebElement> productItems = driver6.findElements(By.cssSelector(""))
+        WebElement addToCartBtn = driver6.findElement(By.className("button.btn-cart"));
         addToCartBtn.click();
         driver6.quit();
 
-*/
+ /*
         WebDriver driver7 = new ChromeDriver();
         driver7.get("http://qa2.dev.evozon.com/");
         WebElement accessory = driver7.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent"));
@@ -118,6 +120,8 @@ public class HomePage {
         password.sendKeys("aaaaaa");
         WebElement loginBtn = driver7.findElement(By.cssSelector("#send2 > span > span"));
         loginBtn.click();
+
+*/
 
 
     }
