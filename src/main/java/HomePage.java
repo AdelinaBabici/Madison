@@ -9,7 +9,7 @@ import java.util.List;
 public class HomePage {
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+      System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
        //Create a new webdriver instance
        WebDriver driver = new ChromeDriver();
@@ -77,7 +77,7 @@ public class HomePage {
         WebElement sale = driver5.findElement(By.cssSelector(".level0.nav-5.parent"));
         sale.click();
         driver5.quit();
-   */
+
         WebDriver driver6 = new ChromeDriver();
        driver6.get("http://qa2.dev.evozon.com/");
        WebElement account = driver6.findElement(By.cssSelector(".skip-link.skip-account"));
@@ -97,31 +97,31 @@ public class HomePage {
         Select oselect = new Select(driver6.findElement(By.cssSelector("select[title='Results per page']")));
         List<WebElement> numberPerPage = oselect.getOptions();
         oselect.selectByIndex(2);
-
-        List<WebElement> productItems = driver6.findElements(By.cssSelector(""))
-        WebElement addToCartBtn = driver6.findElement(By.className("button.btn-cart"));
+        WebElement product = driver6.findElement(By.id("product-collection-image-373"));
+        product.click();
+        WebElement addToCartBtn = driver6.findElement(By.className("add-to-cart-buttons"));
         addToCartBtn.click();
         driver6.quit();
 
- /*
-        WebDriver driver7 = new ChromeDriver();
+
+  WebDriver driver7 = new ChromeDriver();
         driver7.get("http://qa2.dev.evozon.com/");
-        WebElement accessory = driver7.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent"));
+        WebElement accessory = driver7.findElement(By.cssSelector(".level0.nav-3.parent"));
         accessory.click();
-        WebElement eyewear = driver7.findElement(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div.col-main > ul > li:nth-child(1) > a > img"));
+        WebElement eyewear = driver7.findElement(By.cssSelector("img[src*='eyewear'"));
         eyewear.click();
-        WebElement addToWishlist = driver7.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > div.actions > ul > li:nth-child(1) > a"));
+        WebElement addToWishlist = driver7.findElement(By.className("link-wishlist"));
         addToWishlist.click();
-        WebElement email = driver7.findElement(By.cssSelector("#email"));
+        WebElement email = driver7.findElement(By.id("email"));
         email.clear();
         email.sendKeys("ab@yahoo.com");
-        WebElement password = driver7.findElement(By.cssSelector("#pass"));
+        WebElement password = driver7.findElement(By.id("pass"));
         password.clear();
         password.sendKeys("aaaaaa");
-        WebElement loginBtn = driver7.findElement(By.cssSelector("#send2 > span > span"));
+        WebElement loginBtn = driver7.findElement(By.id("send2"));
         loginBtn.click();
 
-*/
+
 
 
     }

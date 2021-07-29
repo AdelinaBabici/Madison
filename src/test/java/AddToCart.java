@@ -49,9 +49,9 @@ public class AddToCart {
         Select oselect = new Select(driver.findElement(By.cssSelector("select[title='Results per page']")));
         List<WebElement> numberPerPage = oselect.getOptions();
         oselect.selectByIndex(2);
-        WebElement product = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > div > h2 > a"));
+        WebElement product = driver.findElement(By.id("product-collection-image-373"));
         product.click();
-        WebElement addToCartBtn = driver.findElement(By.cssSelector("#product_addtocart_form > div.add-to-cart-wrapper > div > div > div.add-to-cart-buttons > button"));
+        WebElement addToCartBtn = driver.findElement(By.className("add-to-cart-buttons"));
         addToCartBtn.click();
 
         String mess = driver.findElement(By.className("success-msg")).getText();
@@ -59,20 +59,5 @@ public class AddToCart {
 
 
     }
-    public void addToWishlist(){
-        WebElement accessory = driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent"));
-        accessory.click();
-        WebElement eyewear = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div.col-main > ul > li:nth-child(1) > a > img"));
-        eyewear.click();
-        WebElement addToWishlist = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > div.actions > ul > li:nth-child(1) > a"));
-        addToWishlist.click();
-        WebElement email = driver.findElement(By.cssSelector("#email"));
-        email.clear();
-        email.sendKeys("ab@yahoo.com");
-        WebElement password = driver.findElement(By.cssSelector("#pass"));
-        password.clear();
-        password.sendKeys("aaaaaa");
-        WebElement loginBtn = driver.findElement(By.cssSelector("#send2 > span > span"));
-        loginBtn.click();
-    }
+
 }
