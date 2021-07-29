@@ -46,14 +46,13 @@ public class AddToWishlist {
         loginBtn.click();
 
         List<WebElement> elementList= driver.findElements(By.cssSelector("#wishlist-table tr[id]"));
-        String foundProduct;
         boolean productFound=false;
         for(WebElement el: elementList){
         if(el.findElement(By.cssSelector("h3 a")).getText().equals("AVIATOR SUNGLASSES")){
         productFound=true;
         break;
 }
-Assert.assertTrue("product not added to wishlist", productFound);
+         Assert.assertTrue("product not added to wishlist", productFound);
 
         }
 
