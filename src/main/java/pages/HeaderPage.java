@@ -19,6 +19,8 @@ public class HeaderPage {
  private WebElement loginLink;
  @FindBy(css = "a[href*='vip']")
  private WebElement vip;
+ @FindBy(css = "a[title*='Register'")
+ private WebElement registerLink;
 
  public void accessAcount(){
      accountIcon.click();
@@ -28,6 +30,9 @@ public void accessLoginPage(){
 }
 public void accessVipPage(){
      vip.click();
+}
+public void accessRegisterPage(){
+     registerLink.click();
 }
 
 }
