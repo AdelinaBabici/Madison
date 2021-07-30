@@ -36,7 +36,7 @@ public class WishlistToCart {
     }
    @After
     public void afterTest(){
-        driver.quit();
+       // driver.quit();
     }
 
     @Test
@@ -48,8 +48,8 @@ public class WishlistToCart {
         product.click();
         WebElement wishlistLink = driver.findElement(By.className("link-wishlist"));
         wishlistLink.click();
-        //test fails second time because the number(272) is changing
-        WebElement addToCartBtn = driver.findElement(By.cssSelector("button[onclick*='addWItemToCart(272)'"));
+
+        WebElement addToCartBtn = driver.findElement(By.cssSelector(".cart-cell button[title*='Add to Cart"));
         addToCartBtn.click();
 
         List<WebElement> elements = driver.findElements(By.id("shopping-cart-table"));
