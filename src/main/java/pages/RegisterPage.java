@@ -20,7 +20,7 @@ public class RegisterPage {
     @FindBy(className = "validation-advice")
     private WebElement adviceMsg;
 
-    public void unableToRegister(){
+    public void clickRegisterBtn(){
         registerBtn.click();
     }
     public void verifyMsg(String message){

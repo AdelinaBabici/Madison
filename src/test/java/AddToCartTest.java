@@ -37,10 +37,11 @@ public class AddToCartTest extends BaseTest {
         headerPage.accessAcount();
         headerPage.accessLoginPage();
         loginPage.login(Constants.EMAIL,Constants.PASSWORD);
-        headerPage.accessVipPage();
-        productsPage.accessProductDetails();
+        headerPage.accessHeaderPage("VIP");
+        productsPage.accessProductDetails("GEOMETRIC CANDLE HOLDERS");
         productDetailsPage.addToCart();
         cartPage.verifyMessage(" was added to your shopping cart.");
+        cartPage.verifyPresenceOfProduct("GEOMETRIC CANDLE HOLDERS");
 
 
     }

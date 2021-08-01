@@ -52,10 +52,9 @@ public class AddToWishlist {
         productFound=true;
         break;
 }
-         Assert.assertTrue("product not added to wishlist", productFound);
 
         }
 
-
+        Assert.assertTrue("product not added to wishlist", productFound);
     }
 }

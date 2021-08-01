@@ -25,7 +25,7 @@ public class NegativeRegisterTest extends BaseTest{
 
         headerPage.accessAcount();
         headerPage.accessRegisterPage();
-        registerPage.unableToRegister();
+        registerPage.clickRegisterBtn();
         registerPage.verifyMsg("This is a required field.");
 
     }
