@@ -2,6 +2,7 @@ package pages;
 
 import com.sun.webkit.graphics.WCRectangle;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -26,6 +27,9 @@ public class HeaderPage {
 
     @FindBy(css = "a[title*='Register'")
     private WebElement registerLink;
+    @FindBy(id = "search")
+    private WebElement searchField;
+
 
     public void clickOnAccountIcon() {
         accountIcon.click();
@@ -61,5 +65,13 @@ public class HeaderPage {
      }
  }
 
+ public void enterSomethingInSearchField(String something){
+        searchField.clear();
+        searchField.sendKeys(something);
+
+ }
+public void enterFromKeyboard(){
+    searchField.sendKeys(Keys.ENTER);
+}
 
 }

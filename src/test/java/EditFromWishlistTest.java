@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 @RunWith(JUnit4.class)
-public class EditFromWishlistTest extends BaseTest{
+public class EditFromWishlistTest extends BaseTest {
     HeaderPage headerPage;
     CategoryPage categoryPage;
     ProductsPage productsPage;
@@ -22,7 +22,7 @@ public class EditFromWishlistTest extends BaseTest{
     CartPage cartPage;
 
     @Test
-    public void editProduct(){
+    public void editProduct() {
 
         headerPage = new HeaderPage(driver);
         categoryPage = new CategoryPage(driver);
@@ -33,7 +33,7 @@ public class EditFromWishlistTest extends BaseTest{
 
         headerPage.clickOnAccountIcon();
         headerPage.clickOnLoginLink();
-        loginPage.login(Constants.EMAIL,Constants.PASSWORD);
+        loginPage.login(Constants.EMAIL, Constants.PASSWORD);
         headerPage.accessHeaderPage("VIP");
         productsPage.accessProductDetails("GEOMETRIC CANDLE HOLDERS");
         productsPage.clickOnAddToWishlistLink();
@@ -43,4 +43,27 @@ public class EditFromWishlistTest extends BaseTest{
         myWishlistPage.verifyIfProductIsUpdated("5");
 
     }
+
+    @Test
+    public void updateProduct() {
+        headerPage = new HeaderPage(driver);
+        categoryPage = new CategoryPage(driver);
+        productsPage = new ProductsPage(driver);
+        loginPage = new LoginPage(driver);
+        myWishlistPage = new MyWishlistPage(driver);
+        cartPage = new CartPage(driver);
+
+        headerPage.clickOnAccountIcon();
+        headerPage.clickOnLoginLink();
+        loginPage.login(Constants.EMAIL, Constants.PASSWORD);
+        headerPage.accessHeaderPage("VIP");
+        productsPage.accessProductDetails("GEOMETRIC CANDLE HOLDERS");
+        productsPage.clickOnAddToWishlistLink();
+        myWishlistPage.enterAComment("more candles");
+        myWishlistPage.clickOnUpdateBtn();
+        myWishlistPage.verifyIfCommentIsDisplayed("more candles");
+
+
+    }
+
 }

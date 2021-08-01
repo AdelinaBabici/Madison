@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -25,6 +28,11 @@ public class MyWishlistPage {
     private WebElement editBtn;
     @FindBy(css = ".cart-cell input[class*='input-text qty validate-not-negative-number'")
     private WebElement updatedQty;
+    @FindBy(css = "textarea[title*='Comment'")
+    private WebElement commentsSection;
+    @FindBy(css = "button[title*='Update Wishlist'")
+    private WebElement updateBtn;
+
 
     public void verifyPresenceOfProduct(String productName) {
         List<WebElement> wishlistProducts = driver.findElements(By.cssSelector("#wishlist-table tr[id]"));
@@ -50,5 +58,19 @@ public class MyWishlistPage {
 
          Assert.assertTrue("Quantity has not been updated",updatedQty.getAttribute("value").equals(qty));
     }
+
+    public void enterAComment(String comment){
+        commentsSection.clear();
+        commentsSection.sendKeys(comment);
+    }
+    public void clickOnUpdateBtn(){
+        updateBtn.click();
+    }
+
+    public void verifyIfCommentIsDisplayed(String comment){
+        Assert.assertTrue("Comment isn`t displayed", commentsSection.getAttribute("value").equals(comment));
+    }
+
+
 
 }
