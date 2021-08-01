@@ -23,8 +23,8 @@ public class NegativeRegisterTest extends BaseTest{
         headerPage = new HeaderPage(driver);
         registerPage = new RegisterPage(driver);
 
-        headerPage.accessAcount();
-        headerPage.accessRegisterPage();
+        headerPage.clickOnAccountIcon();
+        headerPage.clickOnRegisterLink();
         registerPage.clickRegisterBtn();
         registerPage.verifyMsg("This is a required field.");
 

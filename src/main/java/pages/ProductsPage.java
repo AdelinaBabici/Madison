@@ -17,8 +17,16 @@ public class ProductsPage {
 
     public ProductsPage(WebDriver driver){
         this.driver = driver;
-
+        PageFactory.initElements(driver, this);
     }
+@FindBy(className = "link-wishlist")
+private WebElement linkWishlist;
+
+    @FindBy(css = ".qty-wrapper input[id*='qty'")
+    private WebElement qtyInput;
+
+    @FindBy(css = "a[href*='updateItemOptions'")
+    private WebElement updateLink;
 
     public void accessProductDetails(String productName){
         List<WebElement> products = driver.findElements(By.cssSelector("h2 a"));
@@ -29,5 +37,16 @@ public class ProductsPage {
             }
         }
 
+    }
+    public void clickOnAddToWishlistLink(){
+        linkWishlist.click();
+    }
+    public void changeQuantity(String qty){
+        qtyInput.clear();
+        qtyInput.sendKeys(qty);
+    }
+
+    public void clickOnUpdateWishlistLink(){
+        updateLink.click();
     }
 }

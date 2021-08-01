@@ -1,3 +1,4 @@
+import com.sun.media.sound.WaveFileReader;
 import helper.Constants;
 import org.junit.After;
 import org.junit.Assert;
@@ -9,30 +10,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import pages.*;
 
-import java.sql.Driver;
-import java.util.List;
-
-
 @RunWith(JUnit4.class)
-
-public class AddToCartTest extends BaseTest {
-
+public class EditFromWishlistTest extends BaseTest{
     HeaderPage headerPage;
-    LoginPage loginPage;
+    CategoryPage categoryPage;
     ProductsPage productsPage;
-    ProductDetailsPage productDetailsPage;
+    LoginPage loginPage;
+    MyWishlistPage myWishlistPage;
     CartPage cartPage;
 
-
     @Test
-    public void ableToaddToCart() {
+    public void editProduct(){
+
         headerPage = new HeaderPage(driver);
-        loginPage = new LoginPage(driver);
+        categoryPage = new CategoryPage(driver);
         productsPage = new ProductsPage(driver);
-        productDetailsPage = new ProductDetailsPage(driver);
+        loginPage = new LoginPage(driver);
+        myWishlistPage = new MyWishlistPage(driver);
         cartPage = new CartPage(driver);
 
         headerPage.clickOnAccountIcon();
@@ -40,11 +36,11 @@ public class AddToCartTest extends BaseTest {
         loginPage.login(Constants.EMAIL,Constants.PASSWORD);
         headerPage.accessHeaderPage("VIP");
         productsPage.accessProductDetails("GEOMETRIC CANDLE HOLDERS");
-        productDetailsPage.addToCart();
-        cartPage.verifyMessage(" was added to your shopping cart.");
-        cartPage.verifyPresenceOfProduct("GEOMETRIC CANDLE HOLDERS");
-
+        productsPage.clickOnAddToWishlistLink();
+        myWishlistPage.clickOnEditBtn();
+        productsPage.changeQuantity("5");
+        productsPage.clickOnUpdateWishlistLink();
+        myWishlistPage.verifyIfProductIsUpdated("5");
 
     }
-
 }
